@@ -1,0 +1,27 @@
+.med-values{
+     all: unset;
+     font-size: 13px;
+     border-radius: 8px;
+     padding: 5px 10px;
+     border-width: 2px; 
+     margin: 0 10px 10px 0;
+}
+.available{
+     border-style: solid;
+}
+.unavailable{
+     border-style: dashed;
+}
+.inActive{
+     color: #ABABAB;
+     border-color: #ABABAB;
+}
+.active{
+     font-weight: 600;
+     color: #112D31;
+     border-color: #112D31;
+}
+
+.active.available{
+     box-shadow: 0px 0px 11.54px 0px #00C5A166;
+}

@@ -1,0 +1,20 @@
+.salt-label{
+     width: 33.33%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     div{
+          font-size: 16px;
+          font-weight: 600;
+          color: #222222;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          span{
+               color: #2A527A;
+               font-weight: 500;
+               font-size: 13px;
+          }
+     }
+}

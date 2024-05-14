@@ -19,12 +19,12 @@ const Home = () => {
     <div className="home">
       <Searchbar value={search} setValue={setSearch} isRoute={params?.saltName ? true : false}/>
       <Separater expand = {"100%"}/>
-      {search === "" ?
+      {/* {search === "" ?
         <div className="no-salt-screen">“ Find medicines with amazing discount “</div>
         :
         loading ? <LoadingScreen/> :
         <div className="no-salt-screen">No exits</div>
-      }
+      } */}
       <SaltCard/>
     </div>
   )
