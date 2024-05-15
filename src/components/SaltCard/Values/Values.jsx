@@ -7,7 +7,6 @@ const Values = ({
      isAvailable,
      onPress
 }) => {
-
   return (
      <button 
           onClick={()=>onPress(name,value)} 

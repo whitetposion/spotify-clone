@@ -1,25 +1,64 @@
+import { useState } from "react"
 import { Data } from "../../assets/data"
-import KeyValues from "./KeyValues/KeyValues"
-
-import "./SaltCard.scss"
+import FSPCombinator from "./FSPcombinator/FSPcombinator"
+import MinPrice from "./MinimumPrice/MinPrice"
 import SaltLabelling from "./SaltLabelling/SaltLabelling"
-const FSPCombinator = () =>{
-  return (
-    <div className="fsp-combine" >
-      <KeyValues/>
-      <KeyValues/>
-      <KeyValues/>
-    </div>
-    
-  )
-}
-const SaltCard = () => {
-     
+import "./SaltCard.scss"
+
+
+const SaltCard = ({data}) => {
+    const {
+      salt,
+      most_common,
+      available_forms, 
+      salt_forms_json
+    } = data
+
+    const [stateManager, setStateManager ] = useState({
+      Form: most_common.Form, 
+      Strength:most_common.Strength,
+      Packaging:most_common.Packing
+    })
+    const onPress = (name, value) =>{
+      if(name == "Form"){
+        const newForm = value;
+            const newStrength = Object.keys(salt_forms_json[newForm])[0];
+            const newPackaging = Object.keys(salt_forms_json[newForm][newStrength])[0];
+
+            setStateManager({
+                Form: newForm,
+                Strength: newStrength,
+                Packaging: newPackaging
+            });
+      } else if (name === "Strength") {
+          const newStrength = value;
+          const newPackaging = Object.keys(salt_forms_json[stateManager.Form][newStrength])[0];
+
+          setStateManager((prevState) => ({
+              ...prevState,
+              Strength: newStrength,
+              Packaging: newPackaging
+          }));
+      } else if (name === "Packaging") {
+          setStateManager((prevState) => ({
+              ...prevState,
+              Packaging: value
+          }));
+      }
+    } 
     return (
       <div className="salt-card">
-        <FSPCombinator/>
-        <SaltLabelling/>
-        <div>oijoij</div>
+        <FSPCombinator 
+          form={available_forms}
+          saltfsp={salt_forms_json}
+          stateManager={stateManager}
+          onPress={onPress}
+        />
+        <SaltLabelling 
+          salt={salt}
+          stateManager={stateManager}
+          />
+        <MinPrice/>
       </div>
     )
 }

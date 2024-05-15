@@ -1,0 +1,30 @@
+.med-result-price{
+     width: 33.33%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     .price{
+          text-align: center;
+          color: #112D31;
+          font-family: Inter;
+          font-size: 28px;
+          font-weight: 800;
+          span{
+               font-family: poppins;
+          }
+     }
+     .no-store{
+          width: 206px;
+          height: 59px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          color: #112D31;
+          font-size: 14px;
+          font-weight: 500;
+          border: 1px solid #A7D6D4;
+          border-radius: 5px;
+     }
+}

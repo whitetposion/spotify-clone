@@ -5,6 +5,7 @@ import Separater from "../../components/Seperater/Seperater"
 import { useParams } from "react-router-dom"
 import LoadingScreen from "../../components/Loader/Loader"
 import SaltCard from "../../components/SaltCard/SaltCard"
+import { Data } from "../../assets/data"
 
 
 const Home = () => {
@@ -17,7 +18,11 @@ const Home = () => {
   },[params])
   return (
     <div className="home">
-      <Searchbar value={search} setValue={setSearch} isRoute={params?.saltName ? true : false}/>
+      <Searchbar 
+        value={search} 
+        setValue={setSearch} 
+        isRoute={params?.saltName ? true : false}
+      />
       <Separater expand = {"100%"}/>
       {/* {search === "" ?
         <div className="no-salt-screen">“ Find medicines with amazing discount “</div>
@@ -25,7 +30,14 @@ const Home = () => {
         loading ? <LoadingScreen/> :
         <div className="no-salt-screen">No exits</div>
       } */}
-      <SaltCard/>
+      <div className="salt-container">
+      {Data.saltSuggestions.map((data, index)=>
+        <SaltCard
+          data={data}
+          key={index}
+        />
+      )}
+      </div>
     </div>
   )
 }

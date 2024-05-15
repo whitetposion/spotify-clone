@@ -1,10 +1,11 @@
 import "./SaltLabelling.scss"
-const SaltLabelling = () => {
+const SaltLabelling = ({salt, stateManager}) => {
+  const {Form, Strength, Packaging} = stateManager
   return (
     <div className='salt-label'>
      <div>
-          Salt D
-          <span>{"Tablet"} | {"5mg"} | {"5 strips"}</span>
+          {salt}
+          <span>{Form} | {Strength} | {Packaging}</span>
           
      </div>
 
