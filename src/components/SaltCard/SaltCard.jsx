@@ -1,8 +1,10 @@
 import { useState } from "react"
+
 import FSPCombinator from "./FSPcombinator/FSPcombinator"
 import MinPrice from "./MinimumPrice/MinPrice"
 import SaltLabelling from "./SaltLabelling/SaltLabelling"
 import { getMinimumSellingPrice } from "../../utils/function"
+
 import "./SaltCard.scss"
 
 

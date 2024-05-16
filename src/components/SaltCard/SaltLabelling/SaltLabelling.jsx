@@ -1,4 +1,5 @@
 import "./SaltLabelling.scss"
+
 const SaltLabelling = ({salt, stateManager}) => {
   const {Form, Strength, Packaging} = stateManager
   return (

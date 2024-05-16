@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
 import Home from './pages/Home/Home'
-import SaltPages from './pages/SaltPages/SaltPages'
+import './App.css'
 
 function App() {
   

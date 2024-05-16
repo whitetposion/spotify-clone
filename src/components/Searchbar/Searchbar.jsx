@@ -24,33 +24,33 @@ const Searchbar = ({
           }
      };
 
-    useEffect(() => {
+     useEffect(() => {
           const input = refInput.current;
           input.addEventListener('keypress', handleKeyPress);
           return () => {
                input.removeEventListener('keypress', handleKeyPress);
           };
      }, [value]);
-  return (
-    <div className='search-bar-container'>
-          <div className='search-bar'>
-               {isRoute ? <ArrowLeft onClick={()=>navigate(-1)} className = "icon" size={20}/> : <Search className="icon" size={20}/>}
-               <input
-                    ref={refInput}
-                    placeholder = "Type your medicine name here"
-                    className="search-bar-input"
-                    value={value} 
-                    onChange={e=> setValue(e.target.value)}
-               />
-               <button
-                    onClick={handleSearch}
-                    className='search-bar-btn'
-               >
-                    Search
-               </button>
+     return (
+          <div className='search-bar-container'>
+                    <div className='search-bar'>
+                         {isRoute ? <ArrowLeft onClick={()=>navigate(-1)} className = "icon" size={20}/> : <Search className="icon" size={20}/>}
+                         <input
+                              ref={refInput}
+                              placeholder = "Type your medicine name here"
+                              className="search-bar-input"
+                              value={value} 
+                              onChange={e=> setValue(e.target.value)}
+                         />
+                         <button
+                              onClick={handleSearch}
+                              className='search-bar-btn'
+                         >
+                              Search
+                         </button>
+                    </div>
           </div>
-    </div>
-  )
+     )
 }
 
 export default Searchbar
