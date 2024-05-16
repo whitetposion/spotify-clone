@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { Data } from "../../assets/data"
 import FSPCombinator from "./FSPcombinator/FSPcombinator"
 import MinPrice from "./MinimumPrice/MinPrice"
 import SaltLabelling from "./SaltLabelling/SaltLabelling"
+import { getMinimumSellingPrice } from "../../utils/function"
 import "./SaltCard.scss"
 
 
@@ -58,7 +58,15 @@ const SaltCard = ({data}) => {
           salt={salt}
           stateManager={stateManager}
           />
-        <MinPrice/>
+        <MinPrice 
+          minPrice={
+            getMinimumSellingPrice(
+              salt_forms_json,
+              stateManager.Form,
+              stateManager.Strength, 
+              stateManager.Packaging
+            )}
+        />
       </div>
     )
 }

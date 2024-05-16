@@ -1,43 +1,56 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Searchbar from "../../components/Searchbar/Searchbar"
 import "./Home.scss"
 import Separater from "../../components/Seperater/Seperater"
 import { useParams } from "react-router-dom"
 import LoadingScreen from "../../components/Loader/Loader"
 import SaltCard from "../../components/SaltCard/SaltCard"
-import { Data } from "../../assets/data"
+import { getSalts } from "../../apis/getSalt"
 
 
 const Home = () => {
   const params = useParams()
   const [search , setSearch] = useState("")
-  const [loading, setLoading] = useState(true)
-  useEffect(()=> {
-    if(params.saltName) setSearch(params.saltName)
+  const [loading, setLoading] = useState(false)
+  const [saltData, setSaltData] = useState(null)
+  const onSearch = async( search) => {
+    setLoading(true)
+    setSaltData(await getSalts(search))
     setLoading(false)
+  }
+  useEffect(()=> {
+    if(params.saltName) {
+      setSearch(params.saltName)
+      onSearch(params.saltName)
+    }
   },[params])
+
+  
   return (
-    <div className="home">
+    <div className="home scrollbar">
       <Searchbar 
         value={search} 
         setValue={setSearch} 
+        onSearch={onSearch}
         isRoute={params?.saltName ? true : false}
       />
-      <Separater expand = {"100%"}/>
-      {/* {search === "" ?
+      <Separater expand={"100%"}/>
+      {loading ? <LoadingScreen/> :
+        saltData ?
+        <div className="salt-container">
+        {saltData.map((data, index)=>
+          <SaltCard
+            data={data}
+            key={index}
+          />
+        )}
+        </div> :
+        !params?.saltName ?
         <div className="no-salt-screen">“ Find medicines with amazing discount “</div>
         :
-        loading ? <LoadingScreen/> :
-        <div className="no-salt-screen">No exits</div>
-      } */}
-      <div className="salt-container">
-      {Data.saltSuggestions.map((data, index)=>
-        <SaltCard
-          data={data}
-          key={index}
-        />
-      )}
-      </div>
+        <div className="no-salt-screen">No exits</div>        
+      }
+      
     </div>
   )
 }

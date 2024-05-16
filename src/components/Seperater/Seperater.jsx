@@ -1,9 +1,10 @@
 import "./Seperater.scss"
 
-const Separater = (expand = "80%") => {
+const Separater = ({expand}) => {
   return (
-    <div className='seperater ' style = {{width:expand } }>
-      
+    <div className="random">
+      <div className='seperater' style = {{width:expand } }>
+      </div>
     </div>
   )
 }

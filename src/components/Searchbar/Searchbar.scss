@@ -1,6 +1,6 @@
 .search-bar-container {
      width: 90%;
-     min-height: 60px;
+     height: 60px;
      max-width: 1002px;
      margin: 0 auto;
      .search-bar{
@@ -18,13 +18,15 @@
                justify-content: center;
                align-items: center;
                color: #555555;
+               cursor: pointer;
           }
           .search-bar-input{
                outline: none;
                border: none;
                width: 60%;
                font-weight: 400;
-               color: #112D316B;
+               color: #112D31;
+               font-size: 16px;
                flex: 1;
                &::placeholder {
                     color: #112D316B;

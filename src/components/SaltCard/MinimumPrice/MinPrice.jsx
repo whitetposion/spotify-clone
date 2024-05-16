@@ -1,11 +1,11 @@
 import "./MinPrice.scss"
-const MinPrice = () => {
-     let price = 50
+const MinPrice = ({minPrice}) => {
+
      return (
      <div className="med-result-price">
-          {price ? 
+          {minPrice ? 
                <div className="price">
-                    From&#8377;<span>{price}</span>
+                    From&#8377;<span>{minPrice}</span>
 
                </div>
                :

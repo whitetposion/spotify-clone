@@ -1,6 +1,12 @@
-.seperater{
-     height: 1px;
-     margin: 2rem 0;
-     background: #CDCDCD;
-     max-width: 1017px;
+.random{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     margin: 3rem 0 1.5rem 0;
+     .seperater{
+          height: 1px;
+          background: #CDCDCD;
+          max-width: 1017px;
+     }
 }
